@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Astro Sites"
+  short_description: "Adapte designs Figma a sites Astro limpos"
+  default_prompt: "Use $build-astro-sites para implementar este design do Figma em Astro, preservando a arquitetura funcional do template quando ele for fornecido."
