@@ -76,6 +76,18 @@ Usar Content Collections para conteudo local estruturado, com schema e validacao
 
 Usar `astro-icon` com nomes no padrao Iconify. Importar somente o necessario. Manter uma familia visual coerente e fornecer rotulo acessivel quando o icone representar uma acao sem texto visivel.
 
+## Dependencias
+
+- Inspecionar `package.json`, lockfile, scripts, configuracao de deploy e comandos de CI antes de classificar pacotes.
+- Colocar em `devDependencies` ferramentas necessarias somente para desenvolvimento e verificacao, como lint, formatacao, testes, typecheck, Lighthouse CI e utilitarios locais.
+- Colocar em `dependencies` bibliotecas importadas pela aplicacao e pacotes exigidos durante o build, deploy ou runtime de producao, conforme o contrato real da infraestrutura.
+- Nao classificar um pacote apenas por ele aparecer ou nao no bundle do navegador. Considerar quando e onde ele precisa estar instalado.
+- Preservar a classificacao do template quando ela refletir uma pipeline valida. Corrigir pacotes mal classificados somente depois de verificar scripts, imports e processo de deploy.
+- Usar a opcao de dependencia de desenvolvimento do gerenciador escolhido, como `-D` ou `--save-dev`, para ferramentas locais.
+- Nao manter o mesmo pacote simultaneamente em `dependencies` e `devDependencies`.
+- Nao misturar gerenciadores de pacotes. Atualizar somente o lockfile correspondente ao projeto.
+- Depois de mover ou adicionar pacotes, reinstalar de forma coerente, executar build e verificacoes e confirmar que a pipeline de producao continua encontrando tudo que precisa.
+
 ## Renderizacao e interatividade
 
 - Pensar a implementacao visual como static-first.

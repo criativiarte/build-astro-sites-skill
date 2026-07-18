@@ -17,6 +17,7 @@ O Figma orienta a apresentação visual. Quando um template é fornecido, o cód
 - Preservação da estratégia de SSG ou SSR de projetos existentes.
 - Validação de responsividade, acessibilidade, SEO, tipos e build.
 - Auditoria automática com Lighthouse CI e relatórios armazenados localmente.
+- Separação entre dependências de produção e ferramentas usadas somente no desenvolvimento.
 
 View Transitions não são habilitadas automaticamente. Recursos experimentais e decisões de backend também ficam fora do escopo, a menos que sejam solicitados explicitamente.
 
@@ -39,7 +40,7 @@ Peça ao Codex para instalar diretamente a pasta da skill:
 
 ```text
 Use $skill-installer para instalar esta skill:
-https://github.com/criativiarte/build-astro-sites/tree/main/skills/build-astro-sites
+https://github.com/criativiarte/build-astro-sites-skill/tree/main/skills/build-astro-sites
 ```
 
 Se a skill não aparecer após a instalação, reinicie o Codex.
@@ -169,6 +170,12 @@ SEO:              95
 Cada rota é auditada três vezes para reduzir variações. Os relatórios ficam em `.lighthouseci/reports` e não são enviados para armazenamento público.
 
 A execução requer Chrome ou Chromium. Se nenhum navegador compatível estiver disponível, a skill informa que a auditoria não foi executada e fornece o comando para repeti-la em outro ambiente. Lighthouse complementa, mas não substitui, as validações manuais de acessibilidade.
+
+### Dependências do projeto
+
+A skill mantém ferramentas de lint, formatação, testes, typecheck e auditoria em `devDependencies`. Bibliotecas e integrações necessárias para executar a aplicação, produzir o build ou realizar o deploy permanecem em `dependencies`, de acordo com a infraestrutura do projeto.
+
+Antes de mover um pacote, a skill verifica scripts, imports, lockfile e a estratégia de instalação usada pela CI ou hospedagem. O mesmo pacote não deve aparecer nos dois grupos, e gerenciadores de pacotes diferentes não são misturados no mesmo projeto.
 
 ## Resultado esperado
 

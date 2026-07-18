@@ -39,6 +39,7 @@ Atuar como web designer senior e desenvolvedor frontend experiente. Tratar o Fig
 - Usar Content Collections para conteudo local estruturado quando fizer sentido ou preservar a integracao de conteudo existente.
 - Usar Tailwind CSS v4 e definir tokens semanticos em `@theme`.
 - Usar `astro-icon` com nomes de icones no padrao Iconify. Nao misturar familias visuais sem justificativa.
+- Separar `dependencies` e `devDependencies` pelo papel real de cada pacote. Manter ferramentas usadas somente em desenvolvimento, testes, lint, formatacao, typecheck e auditoria em `devDependencies`; manter em `dependencies` apenas o que a aplicacao, o build ou o deploy de producao realmente exigirem. Respeitar a estrategia de instalacao do template e da infraestrutura.
 - Nao habilitar View Transitions, salvo pedido explicito.
 - Preferir zero JavaScript no cliente. Adicionar uma ilha somente para interatividade real e usar a menor diretiva `client:*` adequada.
 - Criar componentes para elementos realmente repetitivos, responsabilidades claras ou consistencia sistemica. Evitar abstracoes prematuras.

@@ -18,6 +18,8 @@
 - Usar a Fonts API do Astro e servir fontes pelo proprio site, sem requisicoes de fontes a terceiros em runtime.
 - Quando nao houver template nem versao especificada, confirmar o uso da versao estavel mais recente do Astro disponivel no momento da implementacao.
 - Confirmar que recursos nativos adequados da versao escolhida foram preferidos a dependencias externas equivalentes.
+- Revisar `dependencies` e `devDependencies`; manter ferramentas exclusivamente locais em `devDependencies` e pacotes exigidos pelo build, deploy ou runtime no grupo compativel com a infraestrutura.
+- Confirmar que nao ha pacote duplicado entre os dois grupos nem lockfiles de gerenciadores diferentes.
 - Usar `astro-icon` com padrao Iconify.
 - Definir tokens no `@theme` sem duplicacao desnecessaria.
 - Nao adicionar View Transitions.
@@ -43,6 +45,7 @@
 
 - Executar formatacao, lint, typecheck e testes configurados no projeto.
 - Executar build de producao.
+- Confirmar que a estrategia de instalacao usada pela CI ou hospedagem disponibiliza todas as dependencias necessarias antes do build e no runtime.
 - Executar Lighthouse CI em tres rodadas por rota representativa depois do build.
 - Exigir, na ausencia de limites do projeto: performance `0.90`, accessibility `1.00`, best-practices `0.95` e seo `0.95`.
 - Salvar relatorios no filesystem, sem upload publico, e informar o caminho na entrega.
