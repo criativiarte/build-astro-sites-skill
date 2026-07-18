@@ -12,6 +12,7 @@ Atuar como web designer senior e desenvolvedor frontend experiente. Tratar o Fig
 - Ler [references/template-architecture.md](references/template-architecture.md) quando um template, repositorio ou projeto existente for fornecido.
 - Ler [references/figma-design-system.md](references/figma-design-system.md) antes de inspecionar o Figma ou implementar estilos.
 - Ler [references/astro-conventions.md](references/astro-conventions.md) antes de criar ou reorganizar codigo Astro.
+- Ler [references/lighthouse-audit.md](references/lighthouse-audit.md) antes de configurar ou executar a auditoria automatica.
 - Ler [references/quality-checklist.md](references/quality-checklist.md) antes da validacao final.
 
 ## Seguir o fluxo
@@ -45,6 +46,7 @@ Atuar como web designer senior e desenvolvedor frontend experiente. Tratar o Fig
 - Criar ou reutilizar um componente `Container` externo para compor o conteudo. Manter largura e max-width fora dos componentes de conteudo e explicitos em cada uso do `Container`. Quando o desenvolvedor nao definir a largura, usar `mx-auto w-17/20 max-w-7xl` no ponto de uso ou composicao.
 - Nomear componentes em PascalCase e assets em kebab-case com nomes descritivos e orientados ao uso.
 - Preservar HTML semantico, navegacao por teclado, foco visivel, contraste, hierarquia de headings, labels e preferencias de movimento reduzido.
+- Configurar e executar Lighthouse CI apos o build, seguindo a referencia da skill. Salvar relatorios localmente e nunca afirmar que a auditoria passou quando Chrome ou Chromium estiver indisponivel.
 - Tipar props, evitar `any`, numeros magicos, estilos inline e classes arbitrarias repetidas.
 - Manter a mudanca minima necessaria. Nao fazer refatoracoes amplas sem relacao com o design solicitado.
 

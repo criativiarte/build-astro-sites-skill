@@ -16,6 +16,7 @@ O Figma orienta a apresentação visual. Quando um template é fornecido, o cód
 - `astro-icon` com nomes de ícones no padrão Iconify.
 - Preservação da estratégia de SSG ou SSR de projetos existentes.
 - Validação de responsividade, acessibilidade, SEO, tipos e build.
+- Auditoria automática com Lighthouse CI e relatórios armazenados localmente.
 
 View Transitions não são habilitadas automaticamente. Recursos experimentais e decisões de backend também ficam fora do escopo, a menos que sejam solicitados explicitamente.
 
@@ -154,6 +155,21 @@ Imagens locais usam `Image` ou `Picture` de `astro:assets` quando aplicável. As
 
 Ícones usam `astro-icon` e identificadores Iconify. A família visual deve permanecer consistente e ações sem texto visível precisam de nome acessível.
 
+### Lighthouse CI
+
+Depois do build, a skill configura e executa Lighthouse CI em rotas representativas. Quando o projeto não define outros limites, são exigidos os seguintes resultados:
+
+```text
+Performance:      90
+Acessibilidade:  100
+Boas práticas:    95
+SEO:              95
+```
+
+Cada rota é auditada três vezes para reduzir variações. Os relatórios ficam em `.lighthouseci/reports` e não são enviados para armazenamento público.
+
+A execução requer Chrome ou Chromium. Se nenhum navegador compatível estiver disponível, a skill informa que a auditoria não foi executada e fornece o comando para repeti-la em outro ambiente. Lighthouse complementa, mas não substitui, as validações manuais de acessibilidade.
+
 ## Resultado esperado
 
 Ao concluir a implementação, o Codex deve informar:
@@ -162,6 +178,7 @@ Ao concluir a implementação, o Codex deve informar:
 - tokens adicionados ao design system;
 - decisões responsivas relevantes;
 - comandos de validação executados;
+- scores, rotas e relatórios do Lighthouse;
 - pendências que dependam de conteúdo, backend ou decisão do desenvolvedor.
 
 ## Licença
